@@ -84,8 +84,8 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
       transform: scale(1);
     }
     100% {
-      -webkit-transform: scale(1.15);
-      transform: scale(1.15);
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
     }
   }
   @keyframes scale-up-center {
@@ -94,8 +94,8 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
       transform: scale(1);
     }
     100% {
-      -webkit-transform: scale(1.15);
-      transform: scale(1.15);
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
     }
   }
 `
