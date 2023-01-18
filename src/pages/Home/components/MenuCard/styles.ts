@@ -61,6 +61,39 @@ export const Container = styled.div`
       font-family: 'Baloo 2', cursive;
       font-weight: 800;
       font-size: 24px;
+
+      margin-right: 2.3rem;
     }
+  }
+`
+
+export const OrderContainer = styled.div`
+  display: flex;
+`
+
+export const PurchaseCard = styled.div`
+  display: flex;
+  gap: 0.8rem;
+`
+
+export const AddToCartButton = styled.button`
+  justify-content: center;
+  align-items: center;
+
+  width: 38px;
+  height: 38px;
+  padding: 8px;
+  gap: 8px;
+  border: none;
+  border-radius: 6px;
+
+  cursor: pointer;
+  transition: 0.4s;
+
+  background-color: ${(props) => props.theme['purple-dark']};
+  color: ${(props) => props.theme.white};
+
+  &:hover {
+    background-color: ${(props) => props.theme.purple};
   }
 `

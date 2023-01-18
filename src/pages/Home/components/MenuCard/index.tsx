@@ -1,5 +1,13 @@
+import { ShoppingCart } from 'phosphor-react'
 import coffeeImg from '../../../../assets/tradicional.png'
-import { CardContainer, Container } from './styles'
+import { Counter } from '../../../../components/Counter'
+import {
+  AddToCartButton,
+  CardContainer,
+  Container,
+  OrderContainer,
+  PurchaseCard,
+} from './styles'
 
 export function MenuCard() {
   return (
@@ -17,9 +25,19 @@ export function MenuCard() {
           O tradicional café feito com água quente e grãos moídos
         </p>
 
-        <p className="price">
-          R$ <span>9,90</span>
-        </p>
+        <OrderContainer>
+          <p className="price">
+            R$ <span>9,90</span>
+          </p>
+
+          <PurchaseCard>
+            <Counter />
+
+            <AddToCartButton>
+              <ShoppingCart size={20} weight="fill" />
+            </AddToCartButton>
+          </PurchaseCard>
+        </OrderContainer>
       </Container>
     </CardContainer>
   )

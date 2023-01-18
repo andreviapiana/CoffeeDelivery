@@ -35,4 +35,5 @@ export const CardsContainer = styled.div`
   row-gap: 3.2rem;
   gap: 4rem;
   align-content: space-around;
+  margin-bottom: 10rem;
 `
