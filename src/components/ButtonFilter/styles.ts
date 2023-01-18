@@ -16,6 +16,8 @@ export const ButtonContainer = styled.button`
 
   cursor: pointer;
 
+  transition: 0.4s;
+
   :hover {
     background-color: ${(props) => props.theme['yellow-light']};
   }
