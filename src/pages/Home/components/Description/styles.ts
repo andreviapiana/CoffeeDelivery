@@ -6,8 +6,7 @@ export const DescriptionContainer = styled.main`
   align-items: center;
   justify-content: center;
 
-  width: 100vw;
-  height: 54.4rem;
+  min-height: 54.4rem;
 
   background: url(${homeBackground}) no-repeat;
   background-size: cover;
