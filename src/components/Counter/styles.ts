@@ -6,7 +6,6 @@ export const CounterContainer = styled.div`
   align-items: center;
 
   width: 7.2rem;
-  height: 3.8rem;
   padding: 0.8rem;
   gap: 0.4rem;
 

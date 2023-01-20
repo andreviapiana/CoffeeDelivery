@@ -8,8 +8,8 @@ export function Counter() {
 
   //= ==increase quantity====//
   const increase = () => {
-    if (quantity > 8) {
-      alert('Erro: A quantidade máxima é de 9 unidades')
+    if (quantity > 19) {
+      alert('Erro: A quantidade máxima é de 20 unidades')
       return
     }
     setQuantity((count) => count + 1)
@@ -25,13 +25,13 @@ export function Counter() {
   }
   return (
     <CounterContainer>
-      <IconWrapper onClick={decrease}>
+      <IconWrapper type="button" onClick={decrease} disabled={quantity <= 1}>
         <Minus size={14} weight="fill" />
       </IconWrapper>
 
       <span>{quantity.toString()}</span>
 
-      <IconWrapper onClick={increase}>
+      <IconWrapper type="button" onClick={increase} disabled={quantity >= 20}>
         <Plus size={14} weight="fill" />
       </IconWrapper>
     </CounterContainer>
