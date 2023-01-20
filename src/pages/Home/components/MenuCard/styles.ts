@@ -74,6 +74,7 @@ export const OrderContainer = styled.div`
 export const PurchaseCard = styled.div`
   display: flex;
   gap: 0.8rem;
+  height: 3.8rem;
 `
 
 export const AddToCartButton = styled.button`
