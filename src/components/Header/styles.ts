@@ -1,6 +1,14 @@
 import styled, { css } from 'styled-components'
 
 export const HeaderContainer = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  background-color: ${(props) => props.theme.background};
+`
+
+export const Content = styled.div`
   display: flex;
   justify-content: space-between;
 
