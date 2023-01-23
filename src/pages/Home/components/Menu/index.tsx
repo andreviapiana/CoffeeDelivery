@@ -7,6 +7,8 @@ import {
   TitleContainer,
 } from './styles'
 
+import { products } from '../../../../../data/products'
+
 export function Menu() {
   return (
     <MenuContainer>
@@ -21,11 +23,9 @@ export function Menu() {
         </ButtonsContainer>
       </TitleContainer>
       <CardsContainer>
-        <MenuCard />
-        <MenuCard />
-        <MenuCard />
-        <MenuCard />
-        <MenuCard />
+        {products.map((product) => (
+          <MenuCard key={product.id} product={product} />
+        ))}
       </CardsContainer>
     </MenuContainer>
   )

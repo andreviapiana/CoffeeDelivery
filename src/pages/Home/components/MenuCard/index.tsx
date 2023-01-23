@@ -1,34 +1,56 @@
 import { ShoppingCart } from 'phosphor-react'
-import coffeeImg from '../../../../assets/tradicional.png'
 import { Counter } from '../../../../components/Counter'
 import {
   AddToCartButton,
   CardContainer,
   Container,
+  Description,
   OrderContainer,
+  Price,
   PurchaseCard,
+  Tags,
+  Title,
 } from './styles'
 
-export function MenuCard() {
+export interface Products {
+  id: number
+  tags: string[]
+  name: string
+  description: string
+  photo: string
+  price: number
+}
+
+interface ProductsProps {
+  product: Products
+}
+
+export function MenuCard({ product }: ProductsProps) {
   return (
     <CardContainer>
       <Container>
-        <img src={coffeeImg} alt="Imagem superior do copo de café" />
+        <img src={`${product.photo}`} alt="Imagem superior do copo de café" />
 
-        <div className="coffeeCategory">
-          <span>TRADICIONAL</span>
-        </div>
+        <Tags>
+          {product.tags.map((tag) => (
+            <span key={`${product.id}${tag}`}>{tag}</span>
+          ))}
+        </Tags>
 
-        <h3 className="product-title">Expresso Tradicional</h3>
+        <Title>
+          <h3 className="product-title">{product.name}</h3>
+        </Title>
 
-        <p className="description">
-          O tradicional café feito com água quente e grãos moídos
-        </p>
+        <Description>
+          <p className="description">{product.description}</p>
+        </Description>
 
         <OrderContainer>
-          <p className="price">
-            R$ <span>9,90</span>
-          </p>
+          <Price>
+            <p>
+              R$ <span>{product.price}</span>
+            </p>
+          </Price>
 
           <PurchaseCard>
             <Counter />
