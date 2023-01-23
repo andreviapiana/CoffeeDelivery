@@ -86,6 +86,7 @@ export const OrderContainer = styled.div`
 `
 
 export const Price = styled.div`
+  white-space: nowrap;
   span {
     font-family: 'Baloo 2', cursive;
     font-weight: 800;

@@ -48,7 +48,7 @@ export function MenuCard({ product }: ProductsProps) {
         <OrderContainer>
           <Price>
             <p>
-              R$ <span>{product.price}</span>
+              R$ <span>{product.price.toFixed(2)}</span>
             </p>
           </Price>
 
