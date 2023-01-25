@@ -1,12 +1,26 @@
 import { CurrencyDollar, Money, CreditCard, Bank } from 'phosphor-react'
-import {
-  PaymentContainer,
-  ContainerTitle,
-  ButtonsContainer,
-  PaymentButton,
-} from './styles'
+import { useFormContext } from 'react-hook-form'
+import { PaymentMethodInput } from '../PaymentInput'
+import { PaymentContainer, ContainerTitle, ButtonsContainer } from './styles'
+
+const paymentMethods = {
+  credit: {
+    label: 'CARTÃO DE CRÉDITO',
+    icon: <CreditCard size={18} />,
+  },
+  debit: {
+    label: 'CARTÃO DE DÉBITO',
+    icon: <Bank size={18} />,
+  },
+  money: {
+    label: 'DINHEIRO',
+    icon: <Money size={18} />,
+  },
+}
 
 export function PaymentSelector() {
+  const { register } = useFormContext()
+
   return (
     <PaymentContainer>
       <ContainerTitle>
@@ -20,25 +34,18 @@ export function PaymentSelector() {
           </p>
         </div>
       </ContainerTitle>
+
       <ButtonsContainer>
-        <PaymentButton type="button">
-          <div className="iconWrapper">
-            <CreditCard size={18} />
-          </div>
-          CARTÃO DE CRÉDITO
-        </PaymentButton>
-        <PaymentButton type="button">
-          <div className="iconWrapper">
-            <Bank size={18} />
-          </div>
-          CARTÃO DE DÉBITO
-        </PaymentButton>
-        <PaymentButton type="button">
-          <div className="iconWrapper">
-            <Money size={18} />
-          </div>
-          DINHEIRO
-        </PaymentButton>
+        {Object.entries(paymentMethods).map(([key, { label, icon }]) => (
+          <PaymentMethodInput
+            key={label}
+            id={key}
+            icon={icon}
+            label={label}
+            value={key}
+            {...register('paymentMethod')}
+          />
+        ))}
       </ButtonsContainer>
     </PaymentContainer>
   )

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const PaymentContainer = styled.div`
+export const PaymentContainer = styled.form`
   width: 100%;
   max-width: 64rem;
   margin-top: 1.2rem;
@@ -33,13 +33,11 @@ export const ContainerTitle = styled.div`
 `
 
 export const ButtonsContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 
-  border-radius: 0.6rem;
   gap: 1.2rem;
   margin-top: 3.2rem;
-
-  background-color: ${(props) => props.theme['base-card']};
 `
 
 export const PaymentButton = styled.button`
