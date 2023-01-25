@@ -5,7 +5,8 @@ import {
   Container,
   RemoveButton,
 } from './styles'
-import coffeeImg from '../../../../assets/tradicional.png'
+// eslint-disable-next-line import/no-absolute-path
+import coffeeImg from '/tradicional.png'
 import { Counter } from '../../../../components/Counter'
 import { Trash } from 'phosphor-react'
 

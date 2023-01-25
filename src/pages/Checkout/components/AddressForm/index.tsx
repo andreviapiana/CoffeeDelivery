@@ -1,4 +1,5 @@
 import { MapPinLine } from 'phosphor-react'
+import { useFormContext } from 'react-hook-form'
 import {
   AddressContainer,
   CardTitle,
@@ -9,6 +10,8 @@ import {
 } from './styles'
 
 export function AddressForm() {
+  const { register } = useFormContext()
+
   return (
     <AddressContainer>
       <CardTitle>
@@ -25,13 +28,41 @@ export function AddressForm() {
           </div>
         </FormTitle>
         <InputsContainer>
-          <Input placeholder="CEP" type="text" className="cep" />
-          <Input placeholder="Rua" type="text" className="street" />
-          <Input placeholder="Número" type="text" className="number" />
-          <Input placeholder="Complemento" type="text" className="complement" />
-          <Input placeholder="Bairro" type="text" className="district" />
-          <Input placeholder="Cidade" type="text" className="city" />
-          <Input id="uf" list="state" type="text" placeholder="UF" />
+          <Input
+            placeholder="CEP"
+            className="cep"
+            {...register('cep', { required: true, valueAsNumber: true })}
+          />
+          <Input
+            placeholder="Rua"
+            className="street"
+            {...register('rua', { required: true })}
+          />
+          <Input
+            placeholder="Número"
+            className="number"
+            {...register('numero', { required: true, valueAsNumber: true })}
+          />
+          <Input
+            placeholder="Complemento"
+            className="complement"
+            {...register('complemento')}
+          />
+          <Input
+            placeholder="Bairro"
+            className="district"
+            {...register('bairro', { required: true })}
+          />
+          <Input
+            placeholder="Cidade"
+            className="city"
+            {...register('cidade', { required: true })}
+          />
+          <Input
+            list="state"
+            placeholder="UF"
+            {...register('UF', { required: true })}
+          />
           <datalist id="state">
             <option value="AC" />
             <option value="AL" />

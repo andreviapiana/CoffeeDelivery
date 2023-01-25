@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const OrderContainer = styled.main`
+export const OrderContainer = styled.form`
   display: flex;
   flex-direction: column;
 
