@@ -43,7 +43,7 @@ export function PaymentSelector() {
             icon={icon}
             label={label}
             value={key}
-            {...register('paymentMethod')}
+            {...register('paymentMethod', { required: true })}
           />
         ))}
       </ButtonsContainer>
