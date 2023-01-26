@@ -2,7 +2,8 @@
 export const products = [
   {
     id: 1,
-    tags: ['tradicional'],
+    tags: ['Tradicional'],
+    tagsFilter: ['Todos', 'Tradicional'],
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
     photo: 'tradicional.png',
@@ -10,7 +11,8 @@ export const products = [
   },
   {
     id: 2,
-    tags: ['tradicional'],
+    tags: ['Tradicional'],
+    tagsFilter: ['Todos', 'Tradicional'],
     name: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
     photo: 'americano.png',
@@ -18,7 +20,8 @@ export const products = [
   },
   {
     id: 3,
-    tags: ['tradicional'],
+    tags: ['Tradicional'],
+    tagsFilter: ['Todos', 'Tradicional'],
     name: 'Expresso Cremoso',
     description: 'Café expresso tradicional com espuma cremosa',
     photo: 'cremoso.png',
@@ -26,7 +29,8 @@ export const products = [
   },
   {
     id: 4,
-    tags: ['tradicional', 'gelado'],
+    tags: ['Tradicional', 'Gelado'],
+    tagsFilter: ['Todos', 'Tradicional', 'Gelado'],
     name: 'Expresso Gelado',
     description: 'Bebida preparada com café expresso e cubos de gelo',
     photo: 'gelado.png',
@@ -34,7 +38,8 @@ export const products = [
   },
   {
     id: 5,
-    tags: ['tradicional', 'com leite'],
+    tags: ['Tradicional', 'Com leite'],
+    tagsFilter: ['Todos', 'Tradicional', 'Com leite'],
     name: 'Café com Leite',
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     photo: 'leite.png',
@@ -42,7 +47,8 @@ export const products = [
   },
   {
     id: 6,
-    tags: ['tradicional', 'com leite'],
+    tags: ['Tradicional', 'Com leite'],
+    tagsFilter: ['Todos', 'Tradicional', 'Com leite'],
     name: 'Latte',
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
@@ -51,7 +57,8 @@ export const products = [
   },
   {
     id: 7,
-    tags: ['tradicional', 'com leite'],
+    tags: ['Tradicional', 'Com leite'],
+    tagsFilter: ['Todos', 'Tradicional', 'Com leite'],
     name: 'Capuccino',
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
@@ -60,7 +67,8 @@ export const products = [
   },
   {
     id: 8,
-    tags: ['tradicional', 'com leite'],
+    tags: ['Tradicional', 'Com leite'],
+    tagsFilter: ['Todos', 'Tradicional', 'Com leite'],
     name: 'Macchiato',
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
@@ -69,7 +77,8 @@ export const products = [
   },
   {
     id: 9,
-    tags: ['tradicional', 'com leite'],
+    tags: ['Tradicional', 'Com leite'],
+    tagsFilter: ['Todos', 'Tradicional', 'Com leite'],
     name: 'Mocaccino',
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     photo: 'mocaccino.png',
@@ -77,7 +86,8 @@ export const products = [
   },
   {
     id: 10,
-    tags: ['especial', 'com leite'],
+    tags: ['Especial', 'Com leite'],
+    tagsFilter: ['Todos', 'Especial', 'Com leite'],
     name: 'Chocolate Quente',
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     photo: 'chocolate.png',
@@ -85,7 +95,8 @@ export const products = [
   },
   {
     id: 11,
-    tags: ['especial', 'alcoólico', 'gelado'],
+    tags: ['Especial', 'Alcoólico', 'Gelado'],
+    tagsFilter: ['Todos', 'Especial', 'Alcoólico', 'Gelado'],
     name: 'Cubano',
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
@@ -94,7 +105,8 @@ export const products = [
   },
   {
     id: 12,
-    tags: ['especial'],
+    tags: ['Especial'],
+    tagsFilter: ['Todos', 'Especial'],
     name: 'Havaiano',
     description: 'Bebida adocicada preparada com café e leite de coco',
     photo: 'havaiano.png',
@@ -102,7 +114,8 @@ export const products = [
   },
   {
     id: 13,
-    tags: ['especial'],
+    tags: ['Especial'],
+    tagsFilter: ['Todos', 'Especial'],
     name: 'Árabe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     photo: 'arabe.png',
@@ -110,7 +123,8 @@ export const products = [
   },
   {
     id: 14,
-    tags: ['especial', 'alcoólico'],
+    tags: ['Especial', 'Alcoólico'],
+    tagsFilter: ['Todos', 'Especial', 'Alcoólico'],
     name: 'Irlandês',
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     photo: 'irlandes.png',
