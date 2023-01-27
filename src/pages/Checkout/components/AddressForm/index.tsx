@@ -1,16 +1,26 @@
 import { MapPinLine } from 'phosphor-react'
 import { useFormContext } from 'react-hook-form'
+import { Input } from '../AddressFormInput'
 import {
   AddressContainer,
   CardTitle,
   FormContainer,
   FormTitle,
-  Input,
   InputsContainer,
 } from './styles'
 
+interface ErrosType {
+  errors: {
+    [key: string]: {
+      message: string
+    }
+  }
+}
+
 export function AddressForm() {
-  const { register } = useFormContext()
+  const { register, formState } = useFormContext()
+
+  const { errors } = formState as unknown as ErrosType
 
   return (
     <AddressContainer>
@@ -31,37 +41,47 @@ export function AddressForm() {
           <Input
             placeholder="CEP"
             className="cep"
-            {...register('cep', { required: true, valueAsNumber: true })}
+            type="number"
+            {...register('cep')}
+            error={errors.cep?.message}
           />
           <Input
             placeholder="Rua"
             className="street"
-            {...register('rua', { required: true })}
+            {...register('rua')}
+            error={errors.rua?.message}
           />
           <Input
             placeholder="Número"
             className="number"
-            {...register('numero', { required: true, valueAsNumber: true })}
+            type="number"
+            {...register('numero')}
+            error={errors.numero?.message}
           />
           <Input
             placeholder="Complemento"
             className="complement"
+            rightText="Opcional"
             {...register('complemento')}
+            error={errors.complemento?.message}
           />
           <Input
             placeholder="Bairro"
             className="district"
-            {...register('bairro', { required: true })}
+            {...register('bairro')}
+            error={errors.bairro?.message}
           />
           <Input
             placeholder="Cidade"
             className="city"
-            {...register('cidade', { required: true })}
+            {...register('cidade')}
+            error={errors.cidade?.message}
           />
           <Input
             list="state"
             placeholder="UF"
-            {...register('UF', { required: true })}
+            {...register('UF')}
+            error={errors.UF?.message}
           />
           <datalist id="state">
             <option value="AC" />

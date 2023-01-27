@@ -19,7 +19,12 @@ const paymentMethods = {
 }
 
 export function PaymentSelector() {
-  const { register } = useFormContext()
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext()
+
+  const paymentMethodError = errors?.paymentMethod?.message as unknown as string
 
   return (
     <PaymentContainer>
@@ -43,9 +48,10 @@ export function PaymentSelector() {
             icon={icon}
             label={label}
             value={key}
-            {...register('paymentMethod', { required: true })}
+            {...register('paymentMethod')}
           />
         ))}
+        {paymentMethodError && <p>{paymentMethodError}</p>}
       </ButtonsContainer>
     </PaymentContainer>
   )

@@ -38,6 +38,12 @@ export const ButtonsContainer = styled.div`
 
   gap: 1.2rem;
   margin-top: 3.2rem;
+
+  > p {
+    grid-column: span 3;
+    font-size: 1.4rem;
+    color: ${(props) => props.theme['base-error']};
+  }
 `
 
 export const PaymentButton = styled.button`

@@ -71,22 +71,3 @@ export const InputsContainer = styled.div`
     grid-column: span 2;
   }
 `
-
-export const Input = styled.input`
-  height: 4.2rem;
-  padding: 1.2rem;
-
-  font-size: 1.4rem;
-
-  border: 1px solid ${(props) => props.theme['base-button']};
-  border-radius: 0.4rem;
-  outline: none;
-
-  background-color: ${(props) => props.theme['base-input']};
-
-  transition: 0.4s;
-
-  &:focus {
-    border: 1px solid ${(props) => props.theme['yellow-dark']};
-  }
-`
