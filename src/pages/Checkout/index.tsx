@@ -43,9 +43,10 @@ export function Checkout() {
     resolver: zodResolver(confirmOrderFormValidationSchema),
   })
 
-  const { handleSubmit } = confirmOrderForm
+  const { handleSubmit, reset } = confirmOrderForm
 
   function handleConfirmOrder(data: ConfirmOrderFormData) {
+    reset()
     console.log(data)
   }
 
