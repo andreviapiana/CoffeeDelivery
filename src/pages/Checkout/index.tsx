@@ -8,9 +8,13 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 
+// eslint-disable-next-line no-unused-vars
 enum PaymentMethods {
+  // eslint-disable-next-line no-unused-vars
   credit = 'credit',
+  // eslint-disable-next-line no-unused-vars
   debit = 'debit',
+  // eslint-disable-next-line no-unused-vars
   money = 'money',
 }
 
@@ -41,6 +45,15 @@ export function Checkout() {
 
   const confirmOrderForm = useForm<ConfirmOrderFormData>({
     resolver: zodResolver(confirmOrderFormValidationSchema),
+    defaultValues: {
+      cep: '',
+      rua: '',
+      numero: '',
+      bairro: '',
+      cidade: '',
+      UF: '',
+      complemento: '',
+    },
   })
 
   const { handleSubmit, reset } = confirmOrderForm

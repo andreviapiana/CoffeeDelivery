@@ -1,4 +1,5 @@
 import { MapPinLine } from 'phosphor-react'
+import { useEffect } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { Input } from '../AddressFormInput'
 import {
@@ -18,9 +19,23 @@ interface ErrosType {
 }
 
 export function AddressForm() {
-  const { register, formState } = useFormContext()
+  const { register, formState, watch, setValue } = useFormContext()
 
   const { errors } = formState as unknown as ErrosType
+
+  const cep: string = watch('cep')
+  useEffect(() => {
+    if (cep.length > 7) {
+      fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then((res) => res.json())
+        .then((res) => {
+          setValue('rua', res.logradouro)
+          setValue('bairro', res.bairro)
+          setValue('cidade', res.localidade)
+          setValue('UF', res.uf)
+        })
+    }
+  }, [cep, setValue])
 
   return (
     <AddressContainer>
