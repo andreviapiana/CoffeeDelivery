@@ -5,7 +5,7 @@ export const CardContainer = styled.main`
   flex-direction: column;
   text-align: center;
 
-  max-width: 25.6rem;
+  width: 25.6rem;
   padding: 0 2rem 1.5rem;
 
   font-size: 1.4rem;
