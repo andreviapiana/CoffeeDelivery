@@ -7,6 +7,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
+import { useNavigate } from 'react-router-dom'
 
 // eslint-disable-next-line no-unused-vars
 enum PaymentMethods {
@@ -58,7 +59,10 @@ export function Checkout() {
 
   const { handleSubmit, reset } = confirmOrderForm
 
+  const navigate = useNavigate()
+
   function handleConfirmOrder(data: ConfirmOrderFormData) {
+    navigate('/delivery')
     reset()
     console.log(data)
   }
