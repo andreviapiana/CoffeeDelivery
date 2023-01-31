@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { MenuCard } from '../MenuCard'
 import {
   ButtonsContainer,
@@ -10,9 +10,13 @@ import {
 import { coffees } from '../../../../../data/coffees'
 import { categorySelectorTypes } from '../../../../../data/selectors'
 import { CategorySelector } from '../CategorySelector'
+import { CartContext } from '../../../../contexts/CartContext'
 
 export function Menu() {
   const [activeFilter, setActiveFilter] = useState('Todos')
+
+  const { cart } = useContext(CartContext)
+  console.log(cart)
 
   return (
     <MenuContainer>

@@ -12,22 +12,33 @@ import {
   Title,
 } from './styles'
 
-export interface Coffee {
-  id: number
-  image: string
-  name: string
-  tags: string[]
-  tagsFilter: string[]
-  description: string
-  price: number
-  amount: number
-}
+import { useContext, useState } from 'react'
+import { CartContext, Coffee } from '../../../../contexts/CartContext'
 
 interface CoffeeProps {
   coffee: Coffee
 }
 
 export function MenuCard({ coffee }: CoffeeProps) {
+  const { addCoffee } = useContext(CartContext)
+
+  const [amount, setAmount] = useState(1)
+
+  function handleIncrease() {
+    setAmount((state) => state + 1)
+  }
+
+  function handleDecrease() {
+    if (amount <= 1) {
+      return
+    }
+    setAmount((state) => state - 1)
+  }
+
+  function handleAddCoffeeToCart() {
+    addCoffee({ coffee, amount })
+  }
+
   return (
     <CardContainer>
       <Container>
@@ -55,9 +66,13 @@ export function MenuCard({ coffee }: CoffeeProps) {
           </Price>
 
           <PurchaseCard>
-            <Counter />
+            <Counter
+              handleDecrease={handleDecrease}
+              handleIncrease={handleIncrease}
+              quantity={amount}
+            />
 
-            <AddToCartButton>
+            <AddToCartButton onClick={handleAddCoffeeToCart}>
               <ShoppingCart size={20} weight="fill" />
             </AddToCartButton>
           </PurchaseCard>
