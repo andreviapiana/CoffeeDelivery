@@ -1,13 +1,14 @@
 /* eslint-disable prettier/prettier */
-export const products = [
+export const coffees = [
   {
     id: 1,
     tags: ['Tradicional'],
     tagsFilter: ['Todos', 'Tradicional'],
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
-    photo: 'tradicional.png',
+    image: 'tradicional.png',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 2,
@@ -15,8 +16,9 @@ export const products = [
     tagsFilter: ['Todos', 'Tradicional'],
     name: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
-    photo: 'americano.png',
+    image: 'americano.png',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 3,
@@ -24,8 +26,9 @@ export const products = [
     tagsFilter: ['Todos', 'Tradicional'],
     name: 'Expresso Cremoso',
     description: 'Café expresso tradicional com espuma cremosa',
-    photo: 'cremoso.png',
+    image: 'cremoso.png',
     price: 10.9,
+    amount: 1,
   },
   {
     id: 4,
@@ -33,8 +36,9 @@ export const products = [
     tagsFilter: ['Todos', 'Tradicional', 'Gelado'],
     name: 'Expresso Gelado',
     description: 'Bebida preparada com café expresso e cubos de gelo',
-    photo: 'gelado.png',
+    image: 'gelado.png',
     price: 10.9,
+    amount: 1,
   },
   {
     id: 5,
@@ -42,8 +46,9 @@ export const products = [
     tagsFilter: ['Todos', 'Tradicional', 'Com leite'],
     name: 'Café com Leite',
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
-    photo: 'leite.png',
+    image: 'leite.png',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 6,
@@ -52,8 +57,9 @@ export const products = [
     name: 'Latte',
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
-    photo: 'latte.png',
+    image: 'latte.png',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 7,
@@ -62,8 +68,9 @@ export const products = [
     name: 'Capuccino',
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
-    photo: 'capuccino.png',
+    image: 'capuccino.png',
     price: 10.9,
+    amount: 1,
   },
   {
     id: 8,
@@ -72,8 +79,9 @@ export const products = [
     name: 'Macchiato',
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
-    photo: 'macchiato.png',
+    image: 'macchiato.png',
     price: 11.9,
+    amount: 1,
   },
   {
     id: 9,
@@ -81,8 +89,9 @@ export const products = [
     tagsFilter: ['Todos', 'Tradicional', 'Com leite'],
     name: 'Mocaccino',
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
-    photo: 'mocaccino.png',
+    image: 'mocaccino.png',
     price: 11.9,
+    amount: 1,
   },
   {
     id: 10,
@@ -90,8 +99,9 @@ export const products = [
     tagsFilter: ['Todos', 'Especial', 'Com leite'],
     name: 'Chocolate Quente',
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
-    photo: 'chocolate.png',
+    image: 'chocolate.png',
     price: 12.9,
+    amount: 1,
   },
   {
     id: 11,
@@ -100,8 +110,9 @@ export const products = [
     name: 'Cubano',
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
-    photo: 'cubano.png',
+    image: 'cubano.png',
     price: 13.9,
+    amount: 1,
   },
   {
     id: 12,
@@ -109,8 +120,9 @@ export const products = [
     tagsFilter: ['Todos', 'Especial'],
     name: 'Havaiano',
     description: 'Bebida adocicada preparada com café e leite de coco',
-    photo: 'havaiano.png',
+    image: 'havaiano.png',
     price: 11.9,
+    amount: 1,
   },
   {
     id: 13,
@@ -118,8 +130,9 @@ export const products = [
     tagsFilter: ['Todos', 'Especial'],
     name: 'Árabe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',
-    photo: 'arabe.png',
+    image: 'arabe.png',
     price: 12.9,
+    amount: 1,
   },
   {
     id: 14,
@@ -127,7 +140,8 @@ export const products = [
     tagsFilter: ['Todos', 'Especial', 'Alcoólico'],
     name: 'Irlandês',
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
-    photo: 'irlandes.png',
+    image: 'irlandes.png',
     price: 13.9,
+    amount: 1,
   },
 ]

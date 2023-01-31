@@ -7,7 +7,7 @@ import {
   TitleContainer,
 } from './styles'
 
-import { products } from '../../../../../data/products'
+import { coffees } from '../../../../../data/coffees'
 import { categorySelectorTypes } from '../../../../../data/selectors'
 import { CategorySelector } from '../CategorySelector'
 
@@ -36,10 +36,10 @@ export function Menu() {
         </ButtonsContainer>
       </TitleContainer>
       <CardsContainer>
-        {products
-          ?.filter((element) => element.tagsFilter.includes(activeFilter))
-          .map((product) => (
-            <MenuCard key={product.id} product={product} />
+        {coffees
+          ?.filter((coffee) => coffee.tagsFilter.includes(activeFilter))
+          .map((coffee) => (
+            <MenuCard key={coffee.id} coffee={coffee} />
           ))}
       </CardsContainer>
     </MenuContainer>

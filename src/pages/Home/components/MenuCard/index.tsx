@@ -12,43 +12,45 @@ import {
   Title,
 } from './styles'
 
-export interface Products {
+export interface Coffee {
   id: number
-  tags: string[]
+  image: string
   name: string
+  tags: string[]
+  tagsFilter: string[]
   description: string
-  photo: string
   price: number
+  amount: number
 }
 
-interface ProductsProps {
-  product: Products
+interface CoffeeProps {
+  coffee: Coffee
 }
 
-export function MenuCard({ product }: ProductsProps) {
+export function MenuCard({ coffee }: CoffeeProps) {
   return (
     <CardContainer>
       <Container>
-        <img src={`${product.photo}`} alt="Imagem superior do copo de café" />
+        <img src={`${coffee.image}`} alt="Imagem superior do copo de café" />
 
         <Tags>
-          {product.tags.map((tag) => (
-            <span key={`${product.id}${tag}`}>{tag}</span>
+          {coffee.tags.map((tag) => (
+            <span key={`${coffee.id}${tag}`}>{tag}</span>
           ))}
         </Tags>
 
         <Title>
-          <h3 className="product-title">{product.name}</h3>
+          <h3>{coffee.name}</h3>
         </Title>
 
         <Description>
-          <p className="description">{product.description}</p>
+          <p>{coffee.description}</p>
         </Description>
 
         <OrderContainer>
           <Price>
             <p>
-              R$ <span>{product.price.toFixed(2)}</span>
+              R$ <span>{coffee.price.toFixed(2)}</span>
             </p>
           </Price>
 
