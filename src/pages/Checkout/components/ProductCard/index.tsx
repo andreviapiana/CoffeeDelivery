@@ -21,7 +21,7 @@ export function ProductCard({ coffee }: ItemCartProps) {
 
   function handleIncrease() {
     setAmount((state) => state + 1)
-    updateCoffee({ coffeeId: coffee.id, amount })
+    updateCoffee({ coffeeId: coffee.id, amount: amount + 1 })
   }
 
   function handleDecrease() {
@@ -30,7 +30,7 @@ export function ProductCard({ coffee }: ItemCartProps) {
     }
 
     setAmount((state) => state - 1)
-    updateCoffee({ coffeeId: coffee.id, amount })
+    updateCoffee({ coffeeId: coffee.id, amount: amount - 1 })
   }
 
   return (

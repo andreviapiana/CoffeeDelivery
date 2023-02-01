@@ -77,7 +77,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
       const updatedItem = updatedCart.find((item) => item.id === coffeeId)
       if (updatedItem) {
-        updatedItem.amount = amount + 1
+        updatedItem.amount = amount
       } else {
         return
       }

@@ -11,6 +11,21 @@ import {
 
 export function OrderCard() {
   const { cart } = useContext(CartContext)
+
+  const cartTotal = cart.reduce((sumTotal, coffee) => {
+    return sumTotal + coffee.price * coffee.amount
+  }, 0)
+
+  const cartTotalFormatted = cartTotal.toLocaleString('pt-br', {
+    minimumFractionDigits: 2,
+  })
+
+  const deliveryFee = 4.5
+
+  const total = (cartTotal + deliveryFee).toLocaleString('pt-br', {
+    minimumFractionDigits: 2,
+  })
+
   return (
     <OrderContainer>
       <CardTitle>
@@ -25,17 +40,17 @@ export function OrderCard() {
         <TotalContainer>
           <div className="total">
             <p>Total de itens</p>
-            <span>R$ 9,99</span>
+            <span>R$ {cartTotalFormatted}</span>
           </div>
 
           <div className="total">
             <p>Entrega</p>
-            <span>R$ 9,90</span>
+            <span>R$ 4,50</span>
           </div>
 
           <div className="total">
             <strong>Total</strong>
-            <strong>R$ 13,90</strong>
+            <strong>R$ {total}</strong>
           </div>
 
           <ConfirmButton type="submit">CONFIRMAR PEDIDO</ConfirmButton>
