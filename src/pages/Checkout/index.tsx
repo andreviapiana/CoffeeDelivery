@@ -22,7 +22,7 @@ const confirmOrderFormValidationSchema = zod.object({
   bairro: zod.string().min(1, 'Informe o Bairro'),
   cidade: zod.string().min(1, 'Informe a Cidade'),
   UF: zod.string().min(2, 'Informe o UF').max(2, 'UF inválido'),
-  paymentMethod: zod.string().min(1, 'Selecione uma forma de pagamento'),
+  paymentMethod: zod.string().min(1, 'Selecione uma forma de pagamento acima!'),
 })
 
 export type OrderData = zod.infer<typeof confirmOrderFormValidationSchema>
@@ -40,6 +40,7 @@ export function Checkout() {
       cidade: '',
       UF: '',
       complemento: '',
+      paymentMethod: '',
     },
   })
 
