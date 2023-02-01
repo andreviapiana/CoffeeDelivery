@@ -11,16 +11,6 @@ import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 
-// eslint-disable-next-line no-unused-vars
-enum PaymentMethods {
-  // eslint-disable-next-line no-unused-vars
-  credit = 'credit',
-  // eslint-disable-next-line no-unused-vars
-  debit = 'debit',
-  // eslint-disable-next-line no-unused-vars
-  money = 'money',
-}
-
 const confirmOrderFormValidationSchema = zod.object({
   cep: zod
     .string()
@@ -32,11 +22,7 @@ const confirmOrderFormValidationSchema = zod.object({
   bairro: zod.string().min(1, 'Informe o Bairro'),
   cidade: zod.string().min(1, 'Informe a Cidade'),
   UF: zod.string().min(2, 'Informe o UF').max(2, 'UF inválido'),
-  paymentMethod: zod.nativeEnum(PaymentMethods, {
-    errorMap: () => {
-      return { message: 'Selecione uma forma de pagamento' }
-    },
-  }),
+  paymentMethod: zod.string().min(1, 'Selecione uma forma de pagamento'),
 })
 
 export type OrderData = zod.infer<typeof confirmOrderFormValidationSchema>
@@ -44,8 +30,6 @@ export type OrderData = zod.infer<typeof confirmOrderFormValidationSchema>
 type ConfirmOrderFormData = OrderData
 
 export function Checkout() {
-  /* const confirmOrderForm = useForm() */
-
   const confirmOrderForm = useForm<ConfirmOrderFormData>({
     resolver: zodResolver(confirmOrderFormValidationSchema),
     defaultValues: {
@@ -66,9 +50,10 @@ export function Checkout() {
   const navigate = useNavigate()
 
   function handleConfirmOrder(data: ConfirmOrderFormData) {
-    navigate('/delivery')
+    navigate('/delivery', {
+      state: data,
+    })
     reset()
-    console.log(data)
     clearCart()
   }
 

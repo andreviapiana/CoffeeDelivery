@@ -7,8 +7,13 @@ import {
   TitleContent,
 } from './styles'
 import deliveryImg from '../../assets/delivery.png'
+import { useLocation } from 'react-router-dom'
+import { OrderData } from '../Checkout'
 
 export function Delivery() {
+  const location = useLocation()
+  const state = location.state as OrderData
+
   return (
     <DeliveryContainer>
       <TitleContent>
@@ -22,8 +27,8 @@ export function Delivery() {
               <MapPin size={18} weight="fill" />
             </div>
             <span>
-              Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
-              <br /> Farrapos - Porto Alegre, RS
+              Entrega em <strong>{`Rua ${state.rua}, ${state.numero}`}</strong>
+              <br /> {`${state.bairro} - ${state.cidade}, ${state.UF}`}
             </span>
           </Icons>
           <Icons>
@@ -41,7 +46,7 @@ export function Delivery() {
             </div>
             <span>
               Pagamento na entrega <br />
-              <strong>Cartão de Crédito</strong>
+              <strong>{state.paymentMethod}</strong>
             </span>
           </Icons>
         </OrderContent>

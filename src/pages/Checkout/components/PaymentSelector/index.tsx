@@ -3,17 +3,17 @@ import { useFormContext } from 'react-hook-form'
 import { PaymentMethodInput } from '../PaymentInput'
 import { PaymentContainer, ContainerTitle, ButtonsContainer } from './styles'
 
-const paymentMethods = {
+export const paymentMethods = {
   credit: {
-    label: 'CARTÃO DE CRÉDITO',
+    label: 'Cartão de Crédito',
     icon: <CreditCard size={18} />,
   },
   debit: {
-    label: 'CARTÃO DE DÉBITO',
+    label: 'Cartão de Débito',
     icon: <Bank size={18} />,
   },
   money: {
-    label: 'DINHEIRO',
+    label: 'Dinheiro',
     icon: <Money size={18} />,
   },
 }
@@ -47,7 +47,7 @@ export function PaymentSelector() {
             id={key}
             icon={icon}
             label={label}
-            value={key}
+            value={label}
             {...register('paymentMethod')}
           />
         ))}

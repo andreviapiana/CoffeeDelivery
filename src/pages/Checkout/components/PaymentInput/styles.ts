@@ -33,6 +33,7 @@ export const ContentContainer = styled.div`
   border: 1px solid ${(props) => props.theme['base-button']};
 
   font-size: 1.2rem;
+  text-transform: uppercase;
 
   color: ${(props) => props.theme['base-text']};
   background: ${(props) => props.theme['base-button']};
