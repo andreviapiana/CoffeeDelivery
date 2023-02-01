@@ -8,6 +8,8 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { CartContext } from '../../contexts/CartContext'
 
 // eslint-disable-next-line no-unused-vars
 enum PaymentMethods {
@@ -57,6 +59,8 @@ export function Checkout() {
     },
   })
 
+  const { clearCart } = useContext(CartContext)
+
   const { handleSubmit, reset } = confirmOrderForm
 
   const navigate = useNavigate()
@@ -65,6 +69,7 @@ export function Checkout() {
     navigate('/delivery')
     reset()
     console.log(data)
+    clearCart()
   }
 
   return (
