@@ -49,4 +49,6 @@ export const ContentContainer = styled.div`
   }
 
   user-select: none;
+
+  cursor: pointer;
 `

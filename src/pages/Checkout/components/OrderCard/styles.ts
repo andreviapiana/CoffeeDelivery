@@ -65,6 +65,8 @@ export const ConfirmButton = styled.button`
 
   font-weight: bold;
 
+  cursor: pointer;
+
   background-color: ${(props) => props.theme.yellow};
   color: ${(props) => props.theme.white};
 

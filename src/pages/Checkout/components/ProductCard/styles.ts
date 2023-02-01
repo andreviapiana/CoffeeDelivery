@@ -68,6 +68,8 @@ export const RemoveButton = styled.button`
 
   font-size: 1.2rem;
 
+  cursor: pointer;
+
   background-color: ${(props) => props.theme['base-button']};
 
   transition: 0.4s;
