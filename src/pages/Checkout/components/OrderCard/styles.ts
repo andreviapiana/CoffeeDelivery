@@ -29,6 +29,23 @@ export const CardContainer = styled.div`
     overflow: auto;
     overflow: overlay;
   }
+
+  .errorWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 20rem;
+    gap: 3rem;
+
+    h2 {
+      font-family: 'Baloo 2', cursive;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+  }
 `
 
 export const ConfirmButton = styled.button`
