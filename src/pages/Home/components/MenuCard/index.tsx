@@ -61,7 +61,12 @@ export function MenuCard({ coffee }: CoffeeProps) {
         <OrderContainer>
           <Price>
             <p>
-              R$ <span>{coffee.price.toFixed(2)}</span>
+              R${' '}
+              <span>
+                {coffee.price.toLocaleString('pt-br', {
+                  minimumFractionDigits: 2,
+                })}
+              </span>
             </p>
           </Price>
 
