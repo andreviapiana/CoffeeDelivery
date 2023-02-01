@@ -17,7 +17,7 @@ interface ItemCartProps {
 export function ProductCard({ coffee }: ItemCartProps) {
   const [amount, setAmount] = useState(coffee.amount)
 
-  const { updateCoffee } = useContext(CartContext)
+  const { updateCoffee, removeCoffee } = useContext(CartContext)
 
   function handleIncrease() {
     setAmount((state) => state + 1)
@@ -33,6 +33,10 @@ export function ProductCard({ coffee }: ItemCartProps) {
     updateCoffee({ coffeeId: coffee.id, amount: amount - 1 })
   }
 
+  function handleRemoveCoffee() {
+    removeCoffee(coffee.id)
+  }
+
   return (
     <Container>
       <div className="card">
@@ -46,7 +50,7 @@ export function ProductCard({ coffee }: ItemCartProps) {
               handleIncrease={handleIncrease}
               quantity={amount}
             />
-            <RemoveButton type="button">
+            <RemoveButton type="button" onClick={handleRemoveCoffee}>
               <div className="iconWrapper">
                 <Trash size={18} />
               </div>

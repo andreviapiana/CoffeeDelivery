@@ -33,6 +33,7 @@ interface CartContextType {
   cart: CartProps[]
   addCoffee: ({ coffee, amount }: addCoffeeProps) => void
   updateCoffee: ({ coffeeId, amount }: UpdatedCartProps) => void
+  removeCoffee: (coffeeId: number) => void
 }
 
 interface CartContextProviderProps {
@@ -88,8 +89,15 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     }
   }
 
+  function removeCoffee(coffeeId: number) {
+    const coffeeFiltered = cart.filter((coffee) => coffee.id !== coffeeId)
+    setCart(coffeeFiltered)
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addCoffee, updateCoffee }}>
+    <CartContext.Provider
+      value={{ cart, addCoffee, updateCoffee, removeCoffee }}
+    >
       {children}
     </CartContext.Provider>
   )
