@@ -11,11 +11,16 @@ export interface Coffee {
   amount: number
 }
 
-interface CoffeeProps {
+export interface CartProps {
   id: number
   name: string
   image: string
   price: number
+  amount: number
+}
+
+interface UpdatedCartProps {
+  coffeeId: number
   amount: number
 }
 
@@ -25,8 +30,9 @@ interface addCoffeeProps {
 }
 
 interface CartContextType {
-  cart: CoffeeProps[]
+  cart: CartProps[]
   addCoffee: ({ coffee, amount }: addCoffeeProps) => void
+  updateCoffee: ({ coffeeId, amount }: UpdatedCartProps) => void
 }
 
 interface CartContextProviderProps {
@@ -36,7 +42,7 @@ interface CartContextProviderProps {
 export const CartContext = createContext({} as CartContextType)
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cart, setCart] = useState<CoffeeProps[]>([])
+  const [cart, setCart] = useState<CartProps[]>([])
 
   function addCoffee({ coffee, amount }: addCoffeeProps) {
     try {
@@ -45,7 +51,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         (item) => item.id === coffee.id,
       )
 
-      let newCoffee: CoffeeProps
+      let newCoffee: CartProps
 
       if (productAlreadyExists) {
         productAlreadyExists.amount += amount
@@ -65,8 +71,25 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     }
   }
 
+  function updateCoffee({ coffeeId, amount }: UpdatedCartProps) {
+    try {
+      const updatedCart = [...cart]
+
+      const updatedItem = updatedCart.find((item) => item.id === coffeeId)
+      if (updatedItem) {
+        updatedItem.amount = amount + 1
+      } else {
+        return
+      }
+
+      setCart(updatedCart)
+    } catch {
+      console.log('error')
+    }
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addCoffee }}>
+    <CartContext.Provider value={{ cart, addCoffee, updateCoffee }}>
       {children}
     </CartContext.Provider>
   )

@@ -1,3 +1,5 @@
+import { useContext } from 'react'
+import { CartContext } from '../../../../contexts/CartContext'
 import { ProductCard } from '../ProductCard'
 import {
   OrderContainer,
@@ -8,6 +10,7 @@ import {
 } from './styles'
 
 export function OrderCard() {
+  const { cart } = useContext(CartContext)
   return (
     <OrderContainer>
       <CardTitle>
@@ -15,9 +18,9 @@ export function OrderCard() {
       </CardTitle>
       <CardContainer>
         <div className="productWrapper">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {cart.map((item) => {
+            return <ProductCard key={item.id} coffee={item} />
+          })}
         </div>
         <TotalContainer>
           <div className="total">

@@ -5,21 +5,47 @@ import {
   Container,
   RemoveButton,
 } from './styles'
-// eslint-disable-next-line import/no-absolute-path
-import coffeeImg from '/tradicional.png'
 import { Counter } from '../../../../components/Counter'
 import { Trash } from 'phosphor-react'
+import { useContext, useState } from 'react'
+import { CartContext, CartProps } from '../../../../contexts/CartContext'
 
-export function ProductCard() {
+interface ItemCartProps {
+  coffee: CartProps
+}
+
+export function ProductCard({ coffee }: ItemCartProps) {
+  const [amount, setAmount] = useState(coffee.amount)
+
+  const { updateCoffee } = useContext(CartContext)
+
+  function handleIncrease() {
+    setAmount((state) => state + 1)
+    updateCoffee({ coffeeId: coffee.id, amount })
+  }
+
+  function handleDecrease() {
+    if (amount <= 1) {
+      return
+    }
+
+    setAmount((state) => state - 1)
+    updateCoffee({ coffeeId: coffee.id, amount })
+  }
+
   return (
     <Container>
       <div className="card">
-        <img src={coffeeImg} alt="Imagem do Prato" />
+        <img src={coffee.image} alt="Imagem do Prato" />
 
         <ItemDetails>
-          <p>Expresso Tradicional</p>
+          <p>{coffee.name}</p>
           <ButtonsContainer>
-            <Counter />
+            <Counter
+              handleDecrease={handleDecrease}
+              handleIncrease={handleIncrease}
+              quantity={amount}
+            />
             <RemoveButton type="button">
               <div className="iconWrapper">
                 <Trash size={18} />
@@ -30,7 +56,12 @@ export function ProductCard() {
         </ItemDetails>
 
         <CoffeePrice>
-          <p>R$ 9,90</p>
+          <p>
+            R${' '}
+            {coffee.price.toLocaleString('pt-br', {
+              minimumFractionDigits: 2,
+            })}
+          </p>
         </CoffeePrice>
       </div>
     </Container>
