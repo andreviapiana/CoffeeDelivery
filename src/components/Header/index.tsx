@@ -5,15 +5,22 @@ import {
   HeaderContainer,
 } from './styles'
 import { MapPin, ShoppingCart } from 'phosphor-react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import logoCoffeeDelivery from '../../assets/logo.png'
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 
+import { OrderData } from '../../pages/Checkout'
+
 export function Header() {
   const { cart } = useContext(CartContext)
 
-  const cartItems = cart.length
+  const cartItems = cart
+    .map((item) => item.amount)
+    .reduce((prev, next) => prev + next, 0)
+
+  const location = useLocation()
+  const state = location.state as OrderData
 
   return (
     <HeaderContainer>
@@ -25,7 +32,7 @@ export function Header() {
         <HeaderButtonsContainer>
           <HeaderButton variant="purple">
             <MapPin size={20} weight="fill" />
-            Caxias do Sul, RS
+            {state ? state.cidade : 'Caxias do Sul'}, {state ? state.UF : 'RS'}
           </HeaderButton>
 
           <NavLink to="/checkout">
