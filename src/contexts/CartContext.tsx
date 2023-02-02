@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 export interface Coffee {
   id: number
@@ -87,6 +88,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     } catch {
       console.log('error')
     }
+    toast.success('Café adicionado ao carrinho!')
   }
 
   function updateCoffee({ coffeeId, amount }: UpdatedCartProps) {
@@ -109,6 +111,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   function removeCoffee(coffeeId: number) {
     const coffeeFiltered = cart.filter((coffee) => coffee.id !== coffeeId)
     setCart(coffeeFiltered)
+    toast.success('Café removido do carrinho!')
   }
 
   function clearCart() {

@@ -27,6 +27,7 @@ export const GlobalStyle = createGlobalStyle`
 
   :root {
     font-size: 62.5%;
+    --toastify-icon-color-success: ${(props) => props.theme['purple-dark']};
   }
 
   body {
