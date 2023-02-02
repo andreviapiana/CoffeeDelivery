@@ -10,7 +10,7 @@ import {
   InputsContainer,
 } from './styles'
 
-interface ErrosType {
+interface ErrorsType {
   errors: {
     [key: string]: {
       message: string
@@ -21,7 +21,7 @@ interface ErrosType {
 export function AddressForm() {
   const { register, formState, watch, setValue } = useFormContext()
 
-  const { errors } = formState as unknown as ErrosType
+  const { errors } = formState as unknown as ErrorsType
 
   const cep: string = watch('cep')
   useEffect(() => {
