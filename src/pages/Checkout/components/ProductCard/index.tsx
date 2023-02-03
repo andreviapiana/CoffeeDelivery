@@ -8,7 +8,8 @@ import {
 import { Counter } from '../../../../components/Counter'
 import { Trash } from 'phosphor-react'
 import { useContext, useState } from 'react'
-import { CartContext, CartProps } from '../../../../contexts/CartContext'
+import { CartContext } from '../../../../contexts/CartContext'
+import { CartProps } from '../../../../reducers/cart/reducer'
 
 interface ItemCartProps {
   coffee: CartProps
