@@ -1,32 +1,31 @@
-import { createContext, ReactNode, useEffect, useState } from 'react'
+import { createContext, ReactNode, useEffect, useReducer } from 'react'
+import {
+  addCoffeeToCartAction,
+  clearCoffeeFromCartAction,
+  removeCoffeeFromCartAction,
+  updatedCoffeeAction,
+} from '../reducers/cart/actions'
+
+import { CartProps, cartReducer } from '../reducers/cart/reducer'
 import { toast } from 'react-toastify'
 
 export interface Coffee {
   id: number
+  image: string
+  name: string
   tags: string[]
-  tagsFilter: string[]
-  name: string
   description: string
-  image: string
   price: number
-  amount: number
-}
-
-export interface CartProps {
-  id: number
-  name: string
-  image: string
-  price: number
-  amount: number
-}
-
-interface UpdatedCartProps {
-  coffeeId: number
   amount: number
 }
 
 interface addCoffeeProps {
   coffee: Coffee
+  amount: number
+}
+
+interface UpdatedCartProps {
+  coffeeId: number
   amount: number
 }
 
@@ -45,78 +44,59 @@ interface CartContextProviderProps {
 export const CartContext = createContext({} as CartContextType)
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cart, setCart] = useState<CartProps[]>(() => {
-    const storedCartItems = localStorage.getItem(
-      '@coffee-delivery:cart-state-1.0.0',
-    )
-
-    if (storedCartItems) {
-      return JSON.parse(storedCartItems)
-    } else {
-      return []
-    }
-  })
-
-  useEffect(() => {
-    const stateJSON = JSON.stringify(cart)
-
-    localStorage.setItem('@coffee-delivery:cart-state-1.0.0', stateJSON)
-  }, [cart])
-
-  function addCoffee({ coffee, amount }: addCoffeeProps) {
-    try {
-      const updatedCart = [...cart]
-      const productAlreadyExists = updatedCart.find(
-        (item) => item.id === coffee.id,
+  const [cartState, dispatch] = useReducer(
+    cartReducer,
+    {
+      cart: [],
+    },
+    () => {
+      const storedStateAsJSON = localStorage.getItem(
+        '@coffee-delivery:cart-state-1.0.0',
       )
 
-      let newCoffee: CartProps
-
-      if (productAlreadyExists) {
-        productAlreadyExists.amount += amount
+      if (storedStateAsJSON) {
+        return JSON.parse(storedStateAsJSON)
       } else {
-        newCoffee = {
-          id: coffee.id,
-          name: coffee.name,
-          image: coffee.image,
-          price: coffee.price,
-          amount,
+        return {
+          cart: [],
         }
-        updatedCart.push(newCoffee)
       }
-      setCart(updatedCart)
-    } catch {
-      console.log('error')
+    },
+  )
+
+  const { cart } = cartState
+
+  function addCoffee({ coffee, amount }: addCoffeeProps) {
+    const newCoffee: CartProps = {
+      id: coffee.id,
+      name: coffee.name,
+      image: coffee.image,
+      price: coffee.price,
+      amount,
     }
+
+    dispatch(addCoffeeToCartAction({ newCoffee, amount }))
     toast.success('Café adicionado ao carrinho!')
   }
 
   function updateCoffee({ coffeeId, amount }: UpdatedCartProps) {
-    try {
-      const updatedCart = [...cart]
-
-      const updatedItem = updatedCart.find((item) => item.id === coffeeId)
-      if (updatedItem) {
-        updatedItem.amount = amount
-      } else {
-        return
-      }
-
-      setCart(updatedCart)
-    } catch {
-      console.log('error')
-    }
+    dispatch(updatedCoffeeAction(coffeeId, amount))
   }
 
   function removeCoffee(coffeeId: number) {
-    const coffeeFiltered = cart.filter((coffee) => coffee.id !== coffeeId)
-    setCart(coffeeFiltered)
+    dispatch(removeCoffeeFromCartAction(coffeeId))
     toast.success('Café removido do carrinho!')
   }
 
   function clearCart() {
-    setCart([])
+    dispatch(clearCoffeeFromCartAction())
   }
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(cartState)
+
+    localStorage.setItem('@coffee-delivery:cart-state-1.0.0', stateJSON)
+  }, [cartState])
 
   return (
     <CartContext.Provider
