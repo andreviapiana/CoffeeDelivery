@@ -17,7 +17,7 @@ ___
 A ideia deste projeto é simular o funcionamento de uma loja virtual. Nela o usuário pode filtrar os itens por categoria, adicionar ou remover do carrinho os itens desejados, com a quantidade desejada, e então prosseguir com a compra preenchendo o seu endereço e escolhendo uma forma de pagamento.
 
 O projeto conta com a funcionalidade de preenchimento automático do endereço quando o usuário informa o CEP.
-<br>
+
 Por "trás dos panos" o projeto apresenta diversas funcionalidades, fazendo uso do React Hook Form e Zod nos formulários, Immer para lidar com imutabilidade, notificações toast com o Toastify, Context para facilitar o uso de variáveis, entre outros.
 
 ___
@@ -25,9 +25,7 @@ ___
 ## 🎨 Layout
 A página em formato desktop é vista na imagem abaixo:
 
-![Home](https://user-images.githubusercontent.com/106932234/216380587-1b2aa1bc-1735-4f46-8a9b-e62d5e1b00dc.png)
-
-![Histórico](https://user-images.githubusercontent.com/106932234/216380614-9987b021-db4c-4564-8fa2-f932058f06a5.png)
+![Capa](https://user-images.githubusercontent.com/106932234/216726306-2651c34e-296d-4c50-8ed3-242a86a038be.png)
 
 ___
 
